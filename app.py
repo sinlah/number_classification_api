@@ -71,7 +71,7 @@ def classify_number():
         "digit_sum": digit_sum(number),
         "fun_fact": get_fun_fact(number)
     }
-    return jsonify(response, sort_keys=False), 200
+    return jsonify(response), 200
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
