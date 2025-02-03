@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
 import requests
 import math
+from flask_cors import CORS
 
 app = Flask(__name__)
-
-from flask_cors import CORS
 CORS(app)
+
+#disable JSON sorting to preserve response order
+app.config['JSON_SORT_KEYS'] = False 
 
 def is_prime(n):
     if n < 2:
