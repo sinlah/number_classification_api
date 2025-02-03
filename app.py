@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import requests
 import math
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -42,6 +43,12 @@ def get_fun_fact(n):
         return response.json().get('text', f'No fun fact about {n} available.')
     return 'No fun fact available.'
 
+#default route for Render health check
+@app.route('/')
+def home():
+    return "Number Classification API is running!"
+
+
 @app.route('/api/classify-number', methods=['GET'])
 def classify_number():
     number = request.args.get('number', type=int)
@@ -67,4 +74,5 @@ def classify_number():
     return jsonify(response, sort_keys=False), 200
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=True)
