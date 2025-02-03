@@ -4,6 +4,9 @@ import math
 
 app = Flask(__name__)
 
+from flask_cors import CORS
+CORS(app)
+
 def is_prime(n):
     if n < 2:
         return False
@@ -34,7 +37,7 @@ def digit_sum(n):
 def get_fun_fact(n):
     response = requests.get(f"http://numbersapi.com/{n}/math?json")
     if response.status_code == 200:
-        return response.json().get('text', 'No fun fact available.')
+        return response.json().get('text', f'No fun fact about {n} available.')
     return 'No fun fact available.'
 
 @app.route('/api/classify-number', methods=['GET'])
