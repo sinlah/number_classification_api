@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify
+import json
+from flask import Flask, request, jsonify, Response
 import requests
 import math
 from flask_cors import CORS
@@ -82,7 +83,7 @@ def classify_number():
     #     "digit_sum": digit_sum(number),
     #     "fun_fact": get_fun_fact(number)
     # }
-    return jsonify(response), 200
+    return Response(json.dumps(response, ensure_ascii=False), mimetype="application/json"), 200
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
