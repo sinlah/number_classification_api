@@ -64,7 +64,7 @@ def classify_number():
         "digit_sum": digit_sum(number),
         "fun_fact": get_fun_fact(number)
     }
-    return jsonify(response), 200
+    return jsonify(response, sort_keys=False), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
