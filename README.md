@@ -46,8 +46,8 @@ Ensure you have the following installed:
 
 ### Clone the Repository
 ```sh
-git clone https://github.com/your-username/number-classification-api.git
-cd number-classification-api
+git clone https://github.com/sinlah/number_classification_api.git
+cd number_classification_api
 ```
 
 ### Install Dependencies
@@ -79,7 +79,7 @@ The API is deployed on **Render**.
 6. Deploy and wait for Render to provide a **publicly accessible URL**.
 
 ## Environment Variables
-The following environment variable must be set for deployment:
+The following environment variable should be set for local deployment:
 ```sh
 PORT=10000
 ```
@@ -91,14 +91,10 @@ PORT=10000
 - **Flask-CORS** (Handles CORS)
 - **Requests** (Fetches data from Numbers API)
 
-## Version Control
-- Hosted on GitHub: [Your Repository Link](https://github.com/your-username/number-classification-api)
-- Publicly accessible repository with a structured README.
-
 ## Testing the API
 ### Using cURL
 ```sh
-curl -X GET "https://your-deployed-url/api/classify-number?number=371"
+curl -X GET "https://number-classification-api-ry90.onrender.com/api/classify-number?number=371"
 ```
 
 ### Using Postman
@@ -106,19 +102,19 @@ curl -X GET "https://your-deployed-url/api/classify-number?number=371"
 2. Set request type to **GET**.
 3. Enter your API endpoint:
    ```sh
-   https://your-deployed-url/api/classify-number?number=371
+   https://number-classification-api-ry90.onrender.com/api/classify-number?number=371
    ```
 4. Click **Send** and check the response.
 
 ### Using a Web Browser
 Simply visit:
 ```
-https://your-deployed-url/api/classify-number?number=371
+https://number-classification-api-ry90.onrender.com/api/classify-number?number=371
 ```
 
 ## License
 This project is licensed under the **MIT License**.
 
 ## Author
-Developed by **[Sinlah Ebi]**
+**[Sinlah Ebi]**
 
