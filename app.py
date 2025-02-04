@@ -50,10 +50,13 @@ def home():
 
 @app.route('/api/classify-number', methods=['GET'])
 def classify_number():
-    number = request.args.get('number', type=int)
-    if number is None:
-        return jsonify({"number": request.args.get('number'), "error": True}), 400
+    number_str = request.args.get('number')
 
+    # Validate input: ensure it's an integer
+    if not number_str or not number_str.lstrip('-').isdigit():
+        return jsonify({"error": "Invalid input. Please provide an integer value."}), 400
+
+    number = int(number_str)
     properties = []
     if is_armstrong(number):
         properties.append("armstrong")
