@@ -4,13 +4,10 @@ import requests
 import math
 from flask_cors import CORS
 import os
-from collections import OrderedDict
 
 app = Flask(__name__)
 CORS(app)
 
-#disable JSON sorting to preserve response order
-app.config['JSON_SORT_KEYS'] = False 
 
 def is_prime(n):
     if n < 2:
@@ -65,24 +62,24 @@ def classify_number():
     else:
         properties.append("odd")
 
-    #use OrderedDict to preserve the exact key order
-    response = OrderedDict([
-        ("number", number),
-        ("is_prime", is_prime(number)),
-        ("is_perfect", is_perfect(number)),
-        ("properties", properties),
-        ("digit_sum", digit_sum(number)),
-        ("fun_fact", get_fun_fact(number))
-    ])
+    # #use OrderedDict to preserve the exact key order
+    # response = OrderedDict([
+    #     ("number", number),
+    #     ("is_prime", is_prime(number)),
+    #     ("is_perfect", is_perfect(number)),
+    #     ("properties", properties),
+    #     ("digit_sum", digit_sum(number)),
+    #     ("fun_fact", get_fun_fact(number))
+    # ])
 
-    # response = {
-    #     "number": number,
-    #     "is_prime": is_prime(number),
-    #     "is_perfect": is_perfect(number),
-    #     "properties": properties,
-    #     "digit_sum": digit_sum(number),
-    #     "fun_fact": get_fun_fact(number)
-    # }
+    response = {
+        "number": number,
+        "is_prime": is_prime(number),
+        "is_perfect": is_perfect(number),
+        "properties": properties,
+        "digit_sum": digit_sum(number),
+        "fun_fact": get_fun_fact(number)
+    }
     return Response(json.dumps(response, ensure_ascii=False), mimetype="application/json"), 200
 
 if __name__ == '__main__':
