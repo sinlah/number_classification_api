@@ -62,16 +62,6 @@ def classify_number():
     else:
         properties.append("odd")
 
-    # #use OrderedDict to preserve the exact key order
-    # response = OrderedDict([
-    #     ("number", number),
-    #     ("is_prime", is_prime(number)),
-    #     ("is_perfect", is_perfect(number)),
-    #     ("properties", properties),
-    #     ("digit_sum", digit_sum(number)),
-    #     ("fun_fact", get_fun_fact(number))
-    # ])
-
     response = {
         "number": number,
         "is_prime": is_prime(number),
