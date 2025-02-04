@@ -62,7 +62,7 @@ python app.py
 By default, the API runs on `http://0.0.0.0:10000`.
 
 ## Deployment
-The API is deployed on **Render**.
+The API is deployed on **Render**. You can use any other deployment platform of your choice such as Heroku.
 
 ### Deployment Steps
 1. Push your code to a **public GitHub repository**.
