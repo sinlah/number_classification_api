@@ -34,7 +34,7 @@ The **Number Classification API** is a simple Flask-based web service that accep
 ```json
 {
     "number": "invalid_input",
-    "error": true
+    "error": "Invalid input. Please provide an integer value."
 }
 ```
 
