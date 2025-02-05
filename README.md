@@ -8,7 +8,7 @@ The **Number Classification API** is a simple Flask-based web service that accep
 - Checks if a number is **perfect**.
 - Identifies if a number is an **Armstrong number**.
 - Determines whether a number is **even** or **odd**.
-- Computes the **sum of the digits**.
+- Computes the **sum of the digits** (in case of floating point numbers, only the integer sum is computed).
 - Fetches a **fun fact** about the number from the Numbers API.
 - Returns responses in **JSON format**.
 - Handles **CORS (Cross-Origin Resource Sharing)**.
@@ -16,7 +16,7 @@ The **Number Classification API** is a simple Flask-based web service that accep
 ## API Endpoint
 ### `GET /api/classify-number?number=<number>`
 **Request Parameters:**
-- `number` (integer, required): The number to classify.
+- `number`: The number to classify.
 
 **Response Format (200 OK):**
 ```json
@@ -34,7 +34,7 @@ The **Number Classification API** is a simple Flask-based web service that accep
 ```json
 {
     "number": "invalid_input",
-    "error": "Invalid input. Please provide an integer value."
+    "error": "Invalid input. Please provide a valid number."
 }
 ```
 
