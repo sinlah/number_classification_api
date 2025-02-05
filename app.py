@@ -39,8 +39,10 @@ def is_perfect(n):
 
 def is_armstrong(n):
     digits = extract_indv_digits(n)
+    if digits[-1] == 0:
+        digits.pop()
     num_digits = len(digits)
-    return n == sum(d ** num_digits for d in digits)
+    return int(float(n)) == sum(d ** num_digits for d in digits)
 
 
 def digit_sum(n):
@@ -63,19 +65,14 @@ def home():
 @app.route('/api/classify-number', methods=['GET'])
 def classify_number():
     number_str = request.args.get('number')
-    print("number: ",number_str)
-    print("number dtype ",type(number_str))
     #validate input: ensure number is a valid float or integer
     try:
         number_float = float(number_str)  #convert to float
     except (ValueError, TypeError):
         return jsonify({"error": "Invalid input. Please provide a valid number."}), 400
-    print("number dtype ",type(number_float))
     #if the number is an integer, convert it to int (to remove decimals like .0)
     number = int(number_float) if number_float.is_integer() else number_float
-    print("number dtype ",type(number))
 
-    print("number2: ",number)
     properties = []
     if is_armstrong(number_str):
         properties.append("armstrong")
