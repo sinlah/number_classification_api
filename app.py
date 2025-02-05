@@ -69,7 +69,8 @@ def classify_number():
     try:
         number_float = float(number_str)  #convert to float
     except (ValueError, TypeError):
-        return jsonify({"error": "Invalid input. Please provide a valid number."}), 400
+        #return jsonify({"number": number_str, "error": "Invalid input. Please provide a valid number."}), 400
+        return Response(json.dumps({"number": number_str, "error": "Invalid input. Please provide a valid number."}), mimetype="application/json"), 400
     #if the number is an integer, convert it to int (to remove decimals like .0)
     number = int(number_float) if number_float.is_integer() else number_float
 
