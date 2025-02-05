@@ -33,7 +33,7 @@ The **Number Classification API** is a simple Flask-based web service that accep
 **Error Response (400 Bad Request):**
 ```json
 {
-    "number": "invalid_input",
+    "number": "abc",
     "error": "Invalid input. Please provide a valid number."
 }
 ```
